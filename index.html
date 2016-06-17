@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-wedth, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Tocea">
+	<script src="js/js.js"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="bower_components/bootstrap/dist/js/bootstrap.js" rel="stylesheet" type="text/css">
+	<link href="bower_components/bootstrap/less/bootstrap.less" rel="stylesheet">
+	<link href="bower_components/jquery/dist/jquery.js" rel="stylesheet" >
+	<script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+
+    function init() {
+      if (navigator.geolocation) {
+        getLocation();
+      } else {
+        document.getElementById("map").innerHTML = "Geolocation API не поддерживается в вашем браузере";
+      }
+    }
+
+    function getLocation() {
+      navigator.geolocation.getCurrentPosition(function (position) {
+       /* var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;*/
+        var latitude = 48.4633;
+        var longitude =35.0529;
+        var map = new ymaps.Map("map", {
+          center: [latitude, longitude],
+          zoom: 16
+        });
+
+        map.controls
+          .add('zoomControl')
+          .add('typeSelector')
+          .add('mapTools');
+
+        var place = new ymaps.Placemark(
+                  [latitude, longitude], {}, {
+            preset: "twirl#redIcon"
+          }
+        );
+        // Добавляем метку в коллекцию
+        map.geoObjects.add(place);
+      });
+    }
+  </script>
+
+</head>
+
+<body>
+	<header>
+		<div class="container col-xs-12">
+			<div class="row">
+					<div class="header_menu">
+						<div class="menu_Item">
+							<a href=""class="content glyphicon glyphicon-menu-hamburger"></a> 
+						</div>
+						<div class="overview_Item">
+							<img src="img/tr1.png" alt="overview" >
+							<a href="Overview.html">Overview</a>					
+						</div>
+						<div class="details_Item">
+							<img src="img/tr2.png" alt="Details" >
+							<a href="#">Details</a>				
+						</div>
+						<div class="details_Item2 hidden-xs ">
+							<span>Share this itinerary:</span>
+							<a href="#"><img src="img/FB.png" alt="Facebook" ></a>	
+							<a href="#"><img src="img/Twitter.png" alt="Twitter" ></a>	
+						</div>	
+					</div>	
+			</div>
+		</div>
+	</header>
+
+	<main>
+	<div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div id="Data" class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+					<div id="Show_map" class="List_right hidden-lg ">
+						<a href=""class="List glyphicon glyphicon-menu-right"></a> 
+					</div>
+					<div class="pagination col-xs-12">
+						<a href="" class="glyphicon glyphicon-menu-left"></a>
+							<ul class="pagination_List">
+								<li class="pagination_Item1">
+									<a href="" class="pagination_link">Jun 24</a>
+								</li>
+								<li class="pagination_Item2">
+									<a href="" class="pagination_link">Jun 25</a>
+								</li>
+								<li class="pagination_Item3">
+									<a href="" class="pagination_link">Jun 26</a>
+								</li>
+							</ul>
+							<a href="" class="glyphicon glyphicon-menu-right"></a>
+					</div>	
+					<div class="trattoria">
+						<div class="trattoria_data">
+							<div class="trattoria_header">
+								<div class="trattoria_header_header">
+									<span id="trattoria_fork">
+									<img src="img/fork.png" alt="food">
+									</span>
+									<span id="trattoria_text">
+										<p>Trattoria Da Ropeton</p>
+									</span>
+									<span id="trattoria_clock">
+										<img src="img/clock.png" alt="clock">
+										<p>10.00</p>
+									</span>
+									<div class="trattoria_header_bottom">
+									<span id="trattoria_header_botton">
+										<p>Via Fontana del Ferro, 1, Verona, Italy</p>
+									</span>
+									</div>
+								</div>
+							</div>
+							<div class="trattoria_slide">
+								<div class="foto">
+									<img src="img/foto.png" alt="food">
+								</div>
+								<div id="w" class="trattoria_text">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero molestiae, totam dignissimos, architecto est omnis voluptatibus aperiam odit excepturi</p>
+								</div>	
+							</div>
+							<div class="trattoria_slader">
+								<span id="click" class="up glyphicon glyphicon-menu-up"></span>
+								<span id="click2" class="hidden glyphicon glyphicon-menu-down"></span>
+							</div>
+							<div class="trattoria_car">
+								<div class="trattoria_car_img">
+									<img src="img/car.png" alt="car">
+								</div>
+							</div>
+							<div class="trattoria_shop">
+								<div class="trattoria_header">
+								<div class="trattoria_header_header">
+									<span id="trattoria_fork">
+									<img src="img/fork.png" alt="fork">
+									</span>
+									<span id="trattoria_text">
+										<p>Trattoria Da Ropeton</p>
+									</span>
+									<span id="trattoria_clock">
+										<img src="img/clock.png" alt="clock">
+										<p>12.00</p>
+									</span>
+									<div class="trattoria_header_bottom">
+									<span id="trattoria_header_botton">
+										<p>Via Fontana del Ferro, 1, Verona, Italy</p>
+									</span>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="trattoria_car">
+								<div class="trattoria_car_img">
+									<img src="img/bus.png" alt="bus">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section>
+				<div id="Map" class="col-xs-12 col-sm-8 hidden-xs hidden-sm hidden-md" >
+					<div id="List_left" class="List_left">
+						<a href=""class="List glyphicon glyphicon-menu-left"></a> 
+					</div>
+					<div id="map">
+					</div>
+				</div>
+				</section>
+			</div>
+		</div>	
+	</div>
+	</main>
+	
+<script>
+$(function(){
+
+var div = document.getElementById('Show_map');
+div.addEventListener("click", Show_Map, false);
+function Show_Map(){
+
+			$("#Map").removeClass("col-xs-12 col-sm-8 hidden-xs hidden-sm hidden-md ");
+			$("#Map").addClass("col-xs-12 hidden-sm hidden-md hidden-lg");
+			
+			$("#Data").removeClass("col-xs-12 col-sm-12 col-md-12 col-lg-4");
+			$("#Data").addClass("col-xs-12 col-sm-12 col-md-12 col-lg-4 hidden-xs")
+		};
+
+var div = document.getElementById('List_left');
+div.addEventListener("click", Show_data, false);
+function Show_data(){
+
+			$("#Map").removeClass("col-xs-12 hidden-sm hidden-md");
+			$("#Map").addClass("col-xs-12 col-sm-8 hidden-xs hidden-sm hidden-md");
+			
+			$("#Data").removeClass("col-xs-12 col-sm-12 col-md-12 col-lg-4 hidden-xs");
+			$("#Data").addClass("col-xs-12 col-sm-12 col-md-12 col-lg-4")
+		};
+});	
+</script>	
+
+	<footer>
+		<div class="container col-xs-12">
+			<div class="row">
+				<div class="footer_mod1">
+					<div class="footer_text">
+						<span id="Home">
+							<a href="">Home</a>
+						</span>
+						<span id="Itineraries">
+							<a href="">Itineraries</a>
+						</span>
+						<span id="About">
+							<a href="">About</a>
+						</span>
+					</div>
+				</div>
+				<div class="footer_mod2">
+					<div class="footer_logo">
+						<img src="img/logo.png" alt="logo">
+					</div>
+				</div>
+				<div class="footer_mod3 hidden-xs ">
+					<div class="footer_cos">
+						<a href="#">
+							<img src="img/FB_white.png" alt="facebook">
+						</a>
+						<a href="#">
+							<img src="img/twitter_white.png" alt="ywitter">
+						</a>
+						<span id="Wanderist">(c)Wanderist 2014</span>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+<script>
+$(function(){
+
+var div = document.getElementById('click');
+div.addEventListener("click", Up, false);
+function Up(){
+	$(".trattoria_slide").slideUp(2000, 
+		function(){
+			$(".trattoria_data").css({"height":"100"})
+			$("#click").addClass("hidden");
+			$("#click2").removeClass("hidden glyphicon glyphicon-menu-down")
+			$("#click2").addClass("display glyphicon glyphicon-menu-down");
+		});
+}
+
+var div2 = document.getElementById('click2');
+div2.addEventListener("click", Down, false);
+function Down(){
+	$(".trattoria_slide").slideDown(2000, 
+		function(){
+			$(".trattoria_data").css({"height":"440"})
+			$("#click2").removeClass("display glyphicon glyphicon-menu-down");
+			$("#click2").addClass("hidden display glyphicon glyphicon-menu-down");
+			$("#click").removeClass("up glyphicon glyphicon-menu-up hidden display glyphicon-menu-down");
+			$("#click").addClass("display glyphicon glyphicon-menu-up");
+		
+		});
+}
+
+});
+</script>
+</body>
+</html>
